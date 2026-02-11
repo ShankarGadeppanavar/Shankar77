@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { UserRole, PigGroup, Sex, Pig, FeedStatus, GroupProfile, FeedType } from './types';
+import { UserRole, PigGroup, Sex, Pig, FeedStatus, GroupProfile, FeedType } from './types.ts';
 
 export const ADMIN_EMAIL = '2ke23ec133@kleit.ac.in';
 
