@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { Pig, PigGroup, FeedType, FeedStatus, GroupProfile } from '../types';
-import { FEED_TYPES, GROUP_PROFILES } from '../constants';
+import { Pig, PigGroup, FeedType, FeedStatus, GroupProfile } from '../types.ts';
+import { FEED_TYPES, GROUP_PROFILES } from '../constants.tsx';
 import { Check, X, Info, Utensils } from 'lucide-react';
 
 interface FeedingFormProps {
@@ -26,7 +26,6 @@ const FeedingForm: React.FC<FeedingFormProps> = ({ pigs, onRecord, onNavigate })
     
     const profile = GROUP_PROFILES.find(g => g.id === selectedGroup)!;
     // Calculate total required capacity for this group based on body weight
-    const totalGroupWeight = groupPigs.reduce((acc, p) => acc + p.weight, 0);
     const totalRequiredKg = groupPigs.reduce((acc, p) => acc + (p.weight * profile.baseRationPerKg), 0);
 
     return groupPigs.map(p => {

@@ -1,13 +1,13 @@
 
 import React from 'react';
-import { AppState, Pig, FeedEvent, UserRole, PigGroup, Sex, FeedStatus, UserProfile } from './types';
-import { loadState, saveState } from './services/storage';
-import Layout from './components/Layout';
-import Dashboard from './views/Dashboard';
-import PigRegistry from './views/PigRegistry';
-import FeedingForm from './views/FeedingForm';
-import Login from './views/Login';
-import { ADMIN_EMAIL, generateSeedData } from './constants';
+import { AppState, Pig, FeedEvent, UserRole, PigGroup, Sex, FeedStatus, UserProfile } from './types.ts';
+import { loadState, saveState } from './services/storage.ts';
+import Layout from './components/Layout.tsx';
+import Dashboard from './views/Dashboard.tsx';
+import PigRegistry from './views/PigRegistry.tsx';
+import FeedingForm from './views/FeedingForm.tsx';
+import Login from './views/Login.tsx';
+import { ADMIN_EMAIL, generateSeedData } from './constants.tsx';
 import { Save, ArrowLeft, RotateCcw, Trash2, LogOut } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -96,7 +96,7 @@ const App: React.FC = () => {
       const freshState: AppState = {
         pigs: generateSeedData(),
         feedEvents: [],
-        currentUser: state.currentUser // Keep current user logged in after reset
+        currentUser: state.currentUser 
       };
       setState(freshState);
       saveState(freshState);
@@ -219,10 +219,10 @@ const App: React.FC = () => {
             <div className="bg-white rounded-3xl p-8 border border-slate-100 space-y-6">
               <div className="flex items-center justify-between p-6 bg-slate-50 rounded-2xl border border-slate-200">
                 <div className="flex items-center gap-4">
-                  <img src={state.currentUser.photoUrl} className="w-16 h-16 rounded-full border-2 border-white shadow-sm" alt="Profile" />
+                  <img src={state.currentUser?.photoUrl} className="w-16 h-16 rounded-full border-2 border-white shadow-sm" alt="Profile" />
                   <div>
-                    <p className="font-bold text-slate-900 text-lg">{state.currentUser.name}</p>
-                    <p className="text-sm text-slate-500 font-medium">{state.currentUser.email}</p>
+                    <p className="font-bold text-slate-900 text-lg">{state.currentUser?.name}</p>
+                    <p className="text-sm text-slate-500 font-medium">{state.currentUser?.email}</p>
                   </div>
                 </div>
                 <button 
@@ -254,18 +254,6 @@ const App: React.FC = () => {
                      </div>
                      <Trash2 size={18} />
                    </button>
-                </div>
-              </div>
-
-              <div className="pt-6 border-t border-slate-100">
-                <h3 className="font-bold mb-4">User Roles</h3>
-                <div className="space-y-2">
-                  {Object.values(UserRole).map(role => (
-                    <div key={role} className="flex justify-between items-center p-3 bg-slate-50 rounded-lg">
-                      <span className="font-medium">{role}</span>
-                      <span className="text-xs font-bold text-pink-600 uppercase">Configured</span>
-                    </div>
-                  ))}
                 </div>
               </div>
             </div>

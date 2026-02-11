@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { UserRole, UserProfile } from '../types';
+import { UserRole, UserProfile } from '../types.ts';
 import { Camera, Mail, User, ShieldCheck } from 'lucide-react';
 
 interface LoginProps {

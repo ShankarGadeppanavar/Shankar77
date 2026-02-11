@@ -1,8 +1,8 @@
 
 import React from 'react';
-import { Pig, FeedStatus, PigGroup } from '../types';
+import { Pig, FeedStatus, PigGroup } from '../types.ts';
 import { AlertTriangle, TrendingUp, PiggyBank as PigIcon, Scale } from 'lucide-react';
-import { getNutritionAdvice } from '../services/gemini';
+import { getNutritionAdvice } from '../services/gemini.ts';
 
 interface DashboardProps {
   pigs: Pig[];

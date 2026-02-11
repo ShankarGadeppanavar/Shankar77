@@ -1,6 +1,6 @@
 
-import { AppState } from '../types';
-import { generateSeedData } from '../constants';
+import { AppState } from '../types.ts';
+import { generateSeedData } from '../constants.tsx';
 
 const STORAGE_KEY = 'liveshock_v1_storage';
 
